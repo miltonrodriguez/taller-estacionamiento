@@ -10,12 +10,12 @@ public class Ticket {
 	
 	private Auto auto;
 	
-	private Agencia agencia;
+	private Terminal agencia;
 	
-	public Agencia getAgencia() {
+	public Terminal getAgencia() {
 		return agencia;
 	}
-	public void setAgencia(Agencia agencia) {
+	public void setAgencia(Terminal agencia) {
 		this.agencia = agencia;
 	}
 	public Auto getAuto() {
