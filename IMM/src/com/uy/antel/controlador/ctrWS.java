@@ -8,7 +8,6 @@ public class ctrWS {
 	
 	public DataTicket altaTicket(String matricula, Date fechaIniE, int cantMinutos, Date fechaVenta, String agencia){
 		return null;
-		
 	}
 		
 	

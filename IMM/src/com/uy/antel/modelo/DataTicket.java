@@ -12,7 +12,9 @@ public class DataTicket {
 	}
 	
 	public DataTicket(int importeTotal, int error, String mensaje){
-		
+		this.importeTotal=importeTotal;
+		this.error= error;
+		this.mensaje=mensaje;
 	}
 	
 	public int getImporteTotal() {
