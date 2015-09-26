@@ -1,6 +1,7 @@
 package com.uy.antel.util;
 
 import javax.xml.XMLConstants;
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -14,10 +15,16 @@ import javax.xml.validation.SchemaFactory;
 
 import org.xml.sax.SAXException;
 
+//import com.uy.antel.util.dataTicket.Dataticket;
+//import com.uy.antel.util.dataTicket.ObjectFactory;
+
+import com.uy.antel.util.altaTicket.*;
+
 import java.io.File;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 
 public class xml {
@@ -25,11 +32,13 @@ public class xml {
 	public static void main(String[] args) throws JAXBException, DatatypeConfigurationException, SAXException{
 		ObjectFactory factory = new ObjectFactory();
 
-		AltaTicketT altaTicket = factory.createAltaTicketT();
+		AltaTicket altaTicket = factory.createAltaTicket();
 		altaTicket.setCantidadMinutos(BigInteger.valueOf(30));
 		
 		GregorianCalendar c = new GregorianCalendar();
-		c.setTime(new Date());
+		//c.setTime(new Date());
+		c.setTimeZone(TimeZone.getTimeZone("GMT-3"));
+		c.set(2015, 9, 25, 23, 50,0);
 		XMLGregorianCalendar xgc = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
 				
 		altaTicket.setFechaHoraInicioEst(xgc);
@@ -39,29 +48,41 @@ public class xml {
 		
 
 		
-		JAXBContext context = JAXBContext.newInstance("com.uy.antel.util");
+		JAXBContext context = JAXBContext.newInstance("com.uy.antel.util.altaTicket");
 
-		JAXBElement<AltaTicketT> elemento = factory.createAltaTicket(altaTicket);
+		//JAXBElement<AltaTicket> elemento = factory.createAltaTicket(altaTicket);
 		
 		Marshaller marshaller = context.createMarshaller();
 
 		marshaller.setProperty("jaxb.formatted.output", Boolean.TRUE);
 
-		marshaller.marshal(elemento, System.out);
+		marshaller.marshal(altaTicket, System.out);
 		
 		File fileo = new File("prueba.xml");
-		marshaller.marshal(elemento, fileo);
+		marshaller.marshal(altaTicket, fileo);
 		
 		
-//		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI); 
-//        Schema schema = sf.newSchema(new File("src/com/uy/antel/util/altaTicket.xsd"));
+		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI); 
+        //Schema schema = sf.newSchema(new File("src/com/uy/antel/util/altaTicket.xsd"));
+		Schema schema = sf.newSchema(new File("src/com/uy/antel/util/altaTicket.xsd"));
 		
-//		File filei = new File("prueba2.xml");
-//		JAXBContext jaxbContext = JAXBContext.newInstance(AltaTicketT.class);
-//		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-//		//jaxbUnmarshaller.setSchema(schema);
-//		Object pru = jaxbUnmarshaller.unmarshal(filei);
-//		System.out.println(pru);
+		File filei = new File("prueba.xml");
+//        File filei = new File("altaTicketpru.xml");
+        //File filei = new File("dataTicketpru.xml");
+		JAXBContext jaxbContext = JAXBContext.newInstance(AltaTicket.class);
+        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		jaxbUnmarshaller.setSchema(schema);
+//		AltaTicketT altaTicket = factory.createAltaTicketT();
+//		altaTicket = (AltaTicketT)jaxbUnmarshaller.unmarshal(filei);
+//		System.out.println(altaTicket);
+		
+		AltaTicket data = (AltaTicket) jaxbUnmarshaller.unmarshal(filei);
+		//jaxbUnmarshaller.setProperty("jaxb.formatted.output", Boolean.TRUE);
+		System.out.println("unmarshall");
+		System.out.println(data.getMatricula());
+		System.out.println(data.getCantidadMinutos());
+		System.out.println(data.getFechaHoraInicioEst());
+		
 				
 
 	}

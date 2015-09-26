@@ -2,22 +2,19 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2015.09.24 a las 08:24:34 PM UYT 
+// Generado el: 2015.09.25 a las 11:15:52 PM UYT 
 //
 
 
-package com.uy.antel.util;
+package com.uy.antel.util.altaTicket;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
 
 
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.uy.antel.util package. 
+ * generated in the com.uy.antel.util.altaTicket package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -31,30 +28,20 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _AltaTicket_QNAME = new QName("", "altaTicket");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.uy.antel.util
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.uy.antel.util.altaTicket
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link AltaTicketT }
+     * Create an instance of {@link AltaTicket }
      * 
      */
-    public AltaTicketT createAltaTicketT() {
-        return new AltaTicketT();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AltaTicketT }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "altaTicket")
-    public JAXBElement<AltaTicketT> createAltaTicket(AltaTicketT value) {
-        return new JAXBElement<AltaTicketT>(_AltaTicket_QNAME, AltaTicketT.class, null, value);
+    public AltaTicket createAltaTicket() {
+        return new AltaTicket();
     }
 
 }
