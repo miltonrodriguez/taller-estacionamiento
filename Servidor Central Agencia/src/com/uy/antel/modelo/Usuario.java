@@ -1,4 +1,4 @@
-package com.uy.antel;
+package com.uy.antel.modelo;
 
 import java.util.ArrayList;
 
