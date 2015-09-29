@@ -5,16 +5,26 @@ import java.util.Date;
 public class DataTicket {
 	int importeTotal;
 	int error;
+	int nroTicket;
 	String mensaje;
 	
 	public DataTicket(){
 		
 	}
 	
-	public DataTicket(int importeTotal, int error, String mensaje){
+	public DataTicket(int importeTotal, int error, String mensaje, int nroTicket){
 		this.importeTotal=importeTotal;
 		this.error= error;
 		this.mensaje=mensaje;
+		this.nroTicket=nroTicket;
+	}
+	
+	public int getNroTicket() {
+		return nroTicket;
+	}
+
+	public void setNroTicket(int nroTicket) {
+		this.nroTicket = nroTicket;
 	}
 	
 	public int getImporteTotal() {
