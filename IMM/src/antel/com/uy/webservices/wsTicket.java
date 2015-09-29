@@ -17,7 +17,7 @@ public class wsTicket {
 	
 	@WebMethod()
 	public DataTicket altaTicket(String matricula, Date fechaIniE, int cantMinutos, Date fechaVenta, String agencia){
-		DataTicket result = new DataTicket(50, 0, "Mensaje de error");
+		DataTicket result = new DataTicket(50, 0, "Mensaje de error",10);
 		return result;
 	}
 }
