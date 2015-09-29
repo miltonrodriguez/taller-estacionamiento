@@ -6,6 +6,10 @@ import com.uy.antel.modelo.DataTicket;
 
 public class ctrAgencia {
 
+	public ctrAgencia(){
+		
+	}
+	
 	public boolean validarAgencia(String agencia){
 		return ctrDAO.validarAgencia(agencia);
 	}
@@ -13,14 +17,21 @@ public class ctrAgencia {
 	public DataTicket altaTicket(String matricula, Date fechaIniE, int cantMinutos, Date fechaVenta, String agencia){
 		
 		DataTicket result = new DataTicket();
-		if (validarAgencia(agencia)){
-			//HAGO ALGO
-			
-			result = new DataTicket(-1, 0, "Error de Sistema",0);
+		ICtrValidacion IValidador = new ctrValidacion();
+		if (IValidador.validarEntrada(matricula, fechaIniE, cantMinutos, fechaVenta, agencia)){
+			if (validarAgencia(agencia)){
+				int idAuto = ctrDAO.altaAuto(matricula);				
+				ctrTicket ctr = new ctrTicket();				
+				result = ctr.altaTicket(idAuto, fechaIniE, cantMinutos, fechaVenta);
+			}else{
+				//GENERO MENSAJE DE ERROR
+				result = new DataTicket(-1, 100, "La agencia no es correcta",-1);
+			}	
 		}else{
 			//GENERO MENSAJE DE ERROR
-			result = new DataTicket(-1, 100, "La agencia no es correcta",-1);
-		}	
+			result = new DataTicket(-1, 101, "Los parametros de entradas no son correctos",-1);
+		}
+			
 		return result;
 	}
 	
