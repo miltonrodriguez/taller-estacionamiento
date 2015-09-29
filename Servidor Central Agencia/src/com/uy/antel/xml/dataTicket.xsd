@@ -1,6 +1,6 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-	<xs:element name="dataticket" nillable="false">
+	<xs:element name="xmlDataTicket" nillable="false">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="error" type="xs:positiveInteger"

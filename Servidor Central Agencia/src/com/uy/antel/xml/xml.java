@@ -1,4 +1,4 @@
-package com.uy.antel.util;
+package com.uy.antel.xml;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXB;
@@ -15,10 +15,7 @@ import javax.xml.validation.SchemaFactory;
 
 import org.xml.sax.SAXException;
 
-//import com.uy.antel.util.dataTicket.Dataticket;
-//import com.uy.antel.util.dataTicket.ObjectFactory;
-
-import com.uy.antel.util.altaTicket.*;
+import com.uy.antel.xml.AltaTicket.*;
 
 import java.io.File;
 import java.math.BigInteger;

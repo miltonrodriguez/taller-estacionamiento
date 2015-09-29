@@ -6,12 +6,22 @@ import java.io.*;
 
 public class ctrlTerminal {
 
+	private static ctrlTerminal instance = null;
+
+	public static ctrlTerminal getInstance() {
+		if (instance == null) {
+			instance = new ctrlTerminal();
+		}
+		return instance;
+	}
+
+	
 	ServerSocket server;
 	public void listenSocket(){
 		  try{
-		    server = new ServerSocket(4444);
+		    server = new ServerSocket(8082);
 		  } catch (IOException e) {
-		    System.out.println("Could not listen on port 4444");
+		    System.out.println("Could not listen on port 8082");
 		    System.exit(-1);
 		  }
 		  while(true){
@@ -22,7 +32,7 @@ public class ctrlTerminal {
 		      Thread t = new Thread(w);
 		      t.start();
 		    } catch (IOException e) {
-		      System.out.println("Accept failed: 4444");
+		      System.out.println("Accept failed: 8082");
 		      System.exit(-1);
 		    }
 		  }

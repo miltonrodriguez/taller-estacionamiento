@@ -12,7 +12,7 @@
 	</xs:simpleType>
 
 
-	<xs:element name="altaTicket" nillable="false">
+	<xs:element name="xmlAltaTicket" nillable="false">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="matricula" type="matriculaT" nillable="false" />

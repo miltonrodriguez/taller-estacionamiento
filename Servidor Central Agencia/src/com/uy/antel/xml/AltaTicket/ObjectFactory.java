@@ -2,11 +2,11 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2015.09.25 a las 11:15:52 PM UYT 
+// Generado el: 2015.09.28 a las 11:12:18 PM UYT 
 //
 
 
-package com.uy.antel.util.altaTicket;
+package com.uy.antel.xml.AltaTicket;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.uy.antel.util.altaTicket package. 
+ * generated in the com.uy.antel.xml.AltaTicket package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -30,18 +30,18 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.uy.antel.util.altaTicket
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.uy.antel.xml.AltaTicket
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link AltaTicket }
+     * Create an instance of {@link XmlAltaTicket }
      * 
      */
-    public AltaTicket createAltaTicket() {
-        return new AltaTicket();
+    public XmlAltaTicket createXmlAltaTicket() {
+        return new XmlAltaTicket();
     }
 
 }
