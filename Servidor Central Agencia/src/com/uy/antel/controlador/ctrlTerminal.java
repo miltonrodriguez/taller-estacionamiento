@@ -1,7 +1,6 @@
 package com.uy.antel.controlador;
 
 import java.net.*;
-import java.awt.event.ActionEvent;
 import java.io.*;
 
 public class ctrlTerminal {

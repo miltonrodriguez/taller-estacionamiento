@@ -1,31 +1,21 @@
 package com.uy.antel.controlador;
 
 import java.net.*;
-import java.nio.CharBuffer;
-import java.nio.charset.Charset;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.stream.XMLStreamReader;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
 import org.xml.sax.SAXException;
 
 import com.uy.antel.xml.AltaTicket.*;
-import com.uy.antel.xml.AltaTicket.ObjectFactory;
 import com.uy.antel.xml.DataTicket.*;
 
-import java.awt.event.ActionEvent;
 import java.io.*;
-import java.math.BigInteger;
 
 public class atenderTerminal implements Runnable {
 

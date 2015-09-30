@@ -1,8 +1,5 @@
 package com.uy.antel.controlador;
 
-import java.math.BigInteger;
-import java.rmi.RemoteException;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.naming.InitialContext;
@@ -12,17 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.xml.rpc.ServiceException;
-
-import com.uy.antel.xml.DataTicket.ObjectFactory;
-import com.uy.antel.xml.AltaTicket.XmlAltaTicket;
-import com.uy.antel.xml.DataTicket.XmlDataTicket;
-
-import antel.com.uy.webservices.DataTicket;
-import antel.com.uy.webservices.WsTicket;
-import antel.com.uy.webservices.WsTicketService;
-import antel.com.uy.webservices.WsTicketServiceLocator;
 
 public class ctrlDAO {
 
