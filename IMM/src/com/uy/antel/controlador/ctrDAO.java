@@ -1,6 +1,7 @@
 package com.uy.antel.controlador;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -76,7 +77,48 @@ public class ctrDAO {
 		return result;
 	}
 	
+	
 	public static int altaAuto(String matricula){
+        int idNuevoAuto=-1;
+        try {
+        	Connection conn = getConexion();
+        	conn.setAutoCommit(false);
+        	
+        	//Obtengo idAuto de la secuencia
+            PreparedStatement ps_secuencia = conn.prepareStatement("SELECT idAuto FROM secuencias");
+            ResultSet rs_secuencia = ps_secuencia.executeQuery();
+            int secuencia;
+            if (rs_secuencia.next()) {
+                secuencia = rs_secuencia.getInt("idAuto");
+                idNuevoAuto = secuencia;
+                secuencia++;
+            } else {
+                throw new SQLException("No se pudo obtener el identificador de secuencia del auto");
+            }
+            rs_secuencia.close();
+            
+        	//Actualizo secuencia idAuto
+            PreparedStatement ps_update_secuencia = conn.prepareStatement("update secuencias set idAuto=?");
+            ps_update_secuencia.setInt(1, secuencia);
+            ps_update_secuencia.executeUpdate();
+            
+            //Agrego el nuevo auto
+            PreparedStatement ps_insert_auto = conn.prepareStatement("INSERT INTO auto (idAuto,matricula) values (?,?)");
+            ps_insert_auto.setInt(1, secuencia);
+            ps_insert_auto.setString(2, matricula);
+            ps_insert_auto.executeUpdate();
+            
+            conn.commit();
+            conn.setAutoCommit(true);                
+            conn.close();           
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return idNuevoAuto;
+	}
+	
+	public static int altaAuto2(String matricula){
 		Connection con = getConexion();
 		int result = -1;
 		try {

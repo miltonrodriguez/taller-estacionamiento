@@ -6,8 +6,17 @@ import com.uy.antel.modelo.DataTicket;
 
 public class ctrAgencia {
 
-	public ctrAgencia(){
+	private static ctrAgencia instance;
+	
+	private ctrAgencia(){
 		
+	}
+	
+	public static ctrAgencia getInstance(){
+		if (instance==null){
+			instance = new ctrAgencia();
+		}
+		return instance;			
 	}
 	
 	public boolean validarAgencia(String agencia){
@@ -20,7 +29,7 @@ public class ctrAgencia {
 		DataTicket result = new DataTicket();
 		
 		try{
-			ICtrValidacion IValidador = new ctrValidacion();
+			ICtrValidacion IValidador = ctrValidacion.getInstance();
 			error = IValidador.validarEntrada(matricula, fechaIniE, cantMinutos, fechaVenta, agencia);
 			
 			switch(error){
@@ -36,7 +45,7 @@ public class ctrAgencia {
 				}default: {
 						if (validarAgencia(agencia)){
 							int idAuto = ctrDAO.altaAuto(matricula);				
-							ctrTicket ctr = new ctrTicket();				
+							ctrTicket ctr = ctrTicket.getInstance();				
 							result = ctr.altaTicket(idAuto, fechaIniE, cantMinutos, fechaVenta);
 						}else{
 							error = 100;

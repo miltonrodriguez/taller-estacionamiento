@@ -5,12 +5,21 @@ import java.util.Date;
 import com.uy.antel.modelo.DataTicket;
 
 public class ctrTicket {
-	public ctrTicket(){
+	private static ctrTicket instance;
+	
+	private ctrTicket(){
 		
 	}
 	
+	public static ctrTicket getInstance(){
+		if (instance==null){
+			instance = new ctrTicket();
+		}
+		return instance;			
+	}
+	
 	public DataTicket altaTicket(int idAuto, Date fechaIniE, int cantMinutos, Date fechaVenta){
-		ICtrImporte Iimporte = new ctrImporte();
+		ICtrImporte Iimporte = ctrImporte.getInstance();
 		int importe = Iimporte.calcularImporte(cantMinutos, fechaIniE);
 		int nroTicket = -1;
 		int error= 0;

@@ -5,8 +5,17 @@ import java.util.regex.*;
 
 public class ctrValidacion implements ICtrValidacion {
 
-	public ctrValidacion(){
+	private static ctrValidacion instance;
+	
+	private ctrValidacion(){
 		
+	}
+	
+	public static ctrValidacion getInstance(){
+		if (instance==null){
+			instance = new ctrValidacion();
+		}
+		return instance;			
 	}
 	
 	private boolean validarMatricula(String matricula){
