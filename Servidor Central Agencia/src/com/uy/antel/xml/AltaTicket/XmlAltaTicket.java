@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2015.09.28 a las 11:12:18 PM UYT 
+// Generado el: 2015.09.29 a las 11:31:06 PM UYT 
 //
 
 
@@ -31,6 +31,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="matricula" type="{}matriculaT"/>
  *         &lt;element name="fechaHoraInicioEst" type="{}fechaEstT"/>
  *         &lt;element name="cantidadMinutos" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *         &lt;element name="nroTerminal" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -43,7 +44,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "", propOrder = {
     "matricula",
     "fechaHoraInicioEst",
-    "cantidadMinutos"
+    "cantidadMinutos",
+    "nroTerminal"
 })
 @XmlRootElement(name = "xmlAltaTicket")
 public class XmlAltaTicket {
@@ -56,6 +58,9 @@ public class XmlAltaTicket {
     @XmlElement(required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger cantidadMinutos;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "positiveInteger")
+    protected BigInteger nroTerminal;
 
     /**
      * Obtiene el valor de la propiedad matricula.
@@ -127,6 +132,30 @@ public class XmlAltaTicket {
      */
     public void setCantidadMinutos(BigInteger value) {
         this.cantidadMinutos = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nroTerminal.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
+     */
+    public BigInteger getNroTerminal() {
+        return nroTerminal;
+    }
+
+    /**
+     * Define el valor de la propiedad nroTerminal.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
+     */
+    public void setNroTerminal(BigInteger value) {
+        this.nroTerminal = value;
     }
 
 }

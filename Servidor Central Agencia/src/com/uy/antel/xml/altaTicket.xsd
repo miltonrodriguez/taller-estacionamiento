@@ -20,6 +20,8 @@
 					nillable="false" />
 				<xs:element name="cantidadMinutos" type="xs:positiveInteger"
 					nillable="false" />
+				<xs:element name="nroTerminal" type="xs:positiveInteger"
+					nillable="false" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
